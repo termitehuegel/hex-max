@@ -1,8 +1,6 @@
-package de.philipberner.bwinf.runde2.aufgabe3.siebenSegmentAnzeige;
+package de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay;
 
-import java.util.Arrays;
-
-public class SiebenSegmentAnzeige {
+public class SevenSegmentDisplay {
     //numbers[i] =>  i => hex number, numbers[i][j] => which segment is on (starts on top and goes clockwise - center is last)
     public boolean[][] numbers = new boolean[][]{
             {true, true, true, true, true, true, false}, // 0
@@ -41,8 +39,8 @@ public class SiebenSegmentAnzeige {
                         jlen++;
                     }
                 }
-                array[i][j][0] = diff;
                 array[i][j][1] = jlen - ilen;
+                array[i][j][0] = (diff + Math.abs(array[i][j][1]))/2;
             }
             //System.out.println(Arrays.deepToString(array[i]));
             for (int k=15; k>=0; k--) {
@@ -63,6 +61,42 @@ public class SiebenSegmentAnzeige {
             }
             System.out.println(s);
         }
+    }
+
+    public int[][][] possibleMoves() {
+        int[][][] array = new int[16][16][2];
+        for (int i = 0; i < 16; i++) {
+            for (int j = 0; j < 16; j++) {
+                int ilen = 0;
+                int jlen = 0;
+                int diff = 0;
+                for (int k = 0; k < 7; k++) {
+                    if (numbers[i][k] != numbers[j][k]) {
+                        diff++;
+                    }
+                    if (numbers[i][k]) {
+                        ilen++;
+                    }
+                    if (numbers[j][k]) {
+                        jlen++;
+                    }
+                }
+                array[i][j][1] = jlen - ilen;
+                array[i][j][0] = (diff + Math.abs(array[i][j][1]))/2;
+            }
+            //System.out.println(Arrays.deepToString(array[i]));
+            for (int k=15; k>=0; k--) {
+                for (int l=k+1; l<16; l++) {
+                    if (array[i][k][1] == array[i][l][1] && array[i][k][0] >= array[i][l][0] && array[i][l][0] != -1) {
+                        array[i][k][0] = -1;
+                        break;
+                    }
+                }
+            }
+
+            //System.out.println(Arrays.deepToString(array[i]));
+        }
+        return array;
     }
 
 }
