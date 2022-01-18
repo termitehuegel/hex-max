@@ -19,8 +19,6 @@ public class HexMax {
         this.sensibleMoves = sevenSegmentDisplay.possibleMoves();
         this.maxFree = calculateMaxFree(sevenSegmentDisplay);
         this.maxPlace = calculateMaxPlace(sevenSegmentDisplay);
-         System.out.println(Arrays.toString(maxFree));
-         System.out.println(Arrays.toString(maxPlace));
     }
 
     public int[] calculateMaxPlace(SevenSegmentDisplay sevenSegmentDisplay) {
