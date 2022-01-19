@@ -1,18 +1,17 @@
 package de.philipberner.bwinf.runde2.aufgabe3;
 
 import de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay.SevenSegmentDisplay;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
 
 public class HexMax {
     private final int moves;
-    private final HexNumber number;
+    private final @NotNull HexNumber number;
     private final int[][][] sensibleMoves;
     private final int[] maxFree;
     private final int[] maxPlace;
-    private int tries = 0;
 
-     HexMax(int moves, HexNumber number) {
+     HexMax(int moves, @NotNull HexNumber number) {
         this.moves = moves;
         this.number = number;
         SevenSegmentDisplay sevenSegmentDisplay = new SevenSegmentDisplay();
@@ -21,7 +20,8 @@ public class HexMax {
         this.maxPlace = calculateMaxPlace(sevenSegmentDisplay);
     }
 
-    public int[] calculateMaxPlace(SevenSegmentDisplay sevenSegmentDisplay) {
+    //calculates the max number of Segments that can be placed from a specific digit on
+    public int[] calculateMaxPlace(@NotNull SevenSegmentDisplay sevenSegmentDisplay) {
          int[] array = new int[number.getDigits().length];
          array[array.length-1] = sevenSegmentDisplay.maxPlace[number.getDigits()[array.length-1]];
          for (int i=array.length-2; i>=0; i--) {
@@ -30,7 +30,8 @@ public class HexMax {
          return array;
     }
 
-    public int[] calculateMaxFree(SevenSegmentDisplay sevenSegmentDisplay) {
+    //calculates the max number of Segments that can be freed from a specific digit on
+    public int[] calculateMaxFree(@NotNull SevenSegmentDisplay sevenSegmentDisplay) {
         int[] array = new int[number.getDigits().length];
         array[array.length-1] = sevenSegmentDisplay.maxFree[number.getDigits()[array.length-1]];
         for (int i=array.length-2; i>=0; i--) {
@@ -39,7 +40,7 @@ public class HexMax {
         return array;
     }
 
-    public HexNumber maxHexNumber() {
+    public @NotNull HexNumber maxHexNumber() {
          //change the first character
         for (int i=15; i>=number.getDigits()[0]; i--) {
             //if move is sensible (!= -1) and move is reachable (in number of moves possible)
@@ -48,7 +49,7 @@ public class HexMax {
                 int[] val = number.getDigits().clone();
                 val[0] = i;
                 //calculates maxHexNumber for this starting position
-                int[] res = new int[0];
+                int[] res;
                 if (sensibleMoves[number.getDigits()[0]][i][1]<0) {
                     res = nextMove(val, sensibleMoves[number.getDigits()[0]][i][0] + sensibleMoves[number.getDigits()[0]][i][1], sensibleMoves[number.getDigits()[0]][i][1], 1);
                 } else {
@@ -56,7 +57,6 @@ public class HexMax {
                 }
                 //if a number is reachable
                 if (res.length != 0) {
-                    System.out.println(tries);
                     return new HexNumber(res);
                 }
             }
@@ -66,7 +66,6 @@ public class HexMax {
     }
 
     private int[] nextMove(int[] num, int movesMade, int free, int place) {
-        tries++;
          //if index out of bounds
         if (place >= num.length) {
             //current number is reachable? => return number

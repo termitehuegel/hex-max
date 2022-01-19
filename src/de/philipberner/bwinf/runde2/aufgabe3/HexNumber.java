@@ -1,13 +1,15 @@
 package de.philipberner.bwinf.runde2.aufgabe3;
 
 
+import org.jetbrains.annotations.NotNull;
+
 public class HexNumber implements Comparable<HexNumber>{
     //Hexadecimal representation of the Number - all UPPERCASE
-    private final String hex;
+    private final @NotNull String hex;
     //the value of the digits (digit[0] is the digit at the left end)
     private final int[] digits;
 
-    public HexNumber(String hex) {
+    public HexNumber(@NotNull String hex) {
         this.hex = hex;
         this.digits = calculatePlaceValues();
     }
@@ -17,7 +19,7 @@ public class HexNumber implements Comparable<HexNumber>{
         this.hex = calculateHex();
     }
 
-    private String calculateHex() {
+    private @NotNull String calculateHex() {
         StringBuilder s = new StringBuilder();
         //for every digit
         for (int value : digits) {
@@ -40,7 +42,7 @@ public class HexNumber implements Comparable<HexNumber>{
         return values;
     }
 
-    public String getHex() {
+    public @NotNull String getHex() {
         return hex;
     }
 
@@ -49,7 +51,7 @@ public class HexNumber implements Comparable<HexNumber>{
     }
 
     @Override
-    public int compareTo(HexNumber o) {
+    public int compareTo(@NotNull HexNumber o) {
         //converts both objects to Longs and compares them
         return Long.compare(Long.parseLong(hex, 16), Long.parseLong(o.hex, 16));
     }
