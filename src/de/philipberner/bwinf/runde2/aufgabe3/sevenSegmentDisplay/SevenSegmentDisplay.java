@@ -2,7 +2,7 @@ package de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay;
 
 public class SevenSegmentDisplay {
     //numbers[i] =>  i => hex number, numbers[i][j] => which segment is on (starts on top and goes clockwise - center is last)
-    public boolean[][] numbers = new boolean[][]{
+    public final boolean[][] numbers = new boolean[][]{
             {true, true, true, true, true, true, false}, // 0
             {false, true, true, false, false, false, false}, // 1
             {true, true, false, true, true, false, true}, // 2
@@ -20,6 +20,45 @@ public class SevenSegmentDisplay {
             {true, false, false, true, true, true, true}, // E
             {true, false, false, false, true, true, true}, // F
     };
+
+    public final int[] maxFree = {
+            -4, //0
+            0, //1
+            -3, //2
+            -3, //3
+            -2, //4
+            -3, //5
+            -4, //6
+            -1, //7
+            -5, //8
+            -4, //9
+            -4, //A
+            -3, //B
+            -2, //C
+            -3, //D
+            -3, //E
+            -2 //F
+    };
+
+    public final int[] maxPlace = {
+            1, //0
+            5, //1
+            2, //2
+            2, //3
+            3, //4
+            2, //5
+            1, //6
+            4, //7
+            0, //8
+            1, //9
+            1, //A
+            2, //B
+            3, //C
+            2, //D
+            2, //E
+            3 //F
+    };
+
 
     //the same as possible moves but it prints the results
     //is only used for debugging purposes
