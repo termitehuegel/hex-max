@@ -1,4 +1,4 @@
-package de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay;
+package de.termitehuegel.bwinf.hexmax.display;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;

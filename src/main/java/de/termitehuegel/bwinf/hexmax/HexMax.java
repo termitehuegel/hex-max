@@ -1,6 +1,6 @@
 package de.termitehuegel.bwinf.hexmax;
 
-import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.SevenSegmentDisplay;
+import de.termitehuegel.bwinf.hexmax.display.SevenSegmentDisplay;
 import org.jetbrains.annotations.NotNull;
 
 

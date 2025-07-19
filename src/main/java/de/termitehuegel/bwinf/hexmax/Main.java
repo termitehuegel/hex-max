@@ -1,8 +1,8 @@
 package de.termitehuegel.bwinf.hexmax;
 
 
-import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.NumberChanger;
-import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.SevenSegmentNumber;
+import de.termitehuegel.bwinf.hexmax.display.NumberChanger;
+import de.termitehuegel.bwinf.hexmax.display.SevenSegmentNumber;
 
 import java.io.File;
 import java.util.Arrays;
