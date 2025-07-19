@@ -1,5 +1,7 @@
 package de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 
 public class SevenSegmentNumber {
@@ -26,7 +28,8 @@ public class SevenSegmentNumber {
         return Arrays.deepEquals(number, o.number);
     }
 
-    public SevenSegmentNumber (SevenSegmentNumber o) {
+    //builds a SevenSegmentNumber as a copy of o
+    public SevenSegmentNumber (@NotNull SevenSegmentNumber o) {
         number = new boolean[o.getNumber().length][o.getNumber()[0].length];
         for (int i=0; i<o.getNumber().length; i++) {
             number[i] = o.getNumber()[i].clone();

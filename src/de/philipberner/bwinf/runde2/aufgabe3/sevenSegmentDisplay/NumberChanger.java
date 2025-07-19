@@ -17,6 +17,7 @@ public class NumberChanger {
         this.finish = finish;
     }
 
+    //returns a list of steps
     public List<SevenSegmentNumber> showSteps(List<int[][]> steps) {
         List<SevenSegmentNumber> list = new ArrayList<>();
         for (int[][] step : steps) {
@@ -27,10 +28,15 @@ public class NumberChanger {
         return list;
     }
 
+    //returns a list of moves
     public List<int[][]> calculateSteps() throws Exception {
+        //list that is returned
         List<int[][]> list = new ArrayList<>();
+        //freeing
         List<int[]> toFalse = new ArrayList<>();
+        //placing
         List<int[]> toTrue = new ArrayList<>();
+        //fill lists
         for (int i=0; i<finish.getNumber().length; i++) {
             for (int j=0; j<finish.getNumber()[i].length; j++) {
                 if (start.getNumber()[i][j] != finish.getNumber()[i][j]) {
@@ -45,6 +51,7 @@ public class NumberChanger {
         if (toFalse.size() != toTrue.size()) {
             throw new Exception("Numbers need to have the same number of positions");
         }
+        //combine toFalse and toTrue
         for (int i=0; i<toFalse.size(); i++) {
             list.add(new int[][]{toFalse.get(i), toTrue.get(i)});
         }
