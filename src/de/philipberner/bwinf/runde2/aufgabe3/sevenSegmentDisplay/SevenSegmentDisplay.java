@@ -21,6 +21,8 @@ public class SevenSegmentDisplay {
             {true, false, false, false, true, true, true}, // F
     };
 
+    //the same as possible moves but it prints the results
+    //is only used for debugging purposes
     public void generateChangeList() {
         int[][][] array = new int[16][16][2];
         for (int i = 0; i < 16; i++) {
