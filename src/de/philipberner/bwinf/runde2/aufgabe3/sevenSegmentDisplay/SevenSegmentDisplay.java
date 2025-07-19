@@ -61,13 +61,25 @@ public class SevenSegmentDisplay {
         }
     }
 
+    //generates all sensible moves and the number of moves needed to complete
     public int[][][] possibleMoves() {
+        //array will save alle possible moves
+        //array[i][j] - i is the current number - j is the number changed to
+        //array[i][j][0] - the number of moves needed to change i to j - tanking away and placing segments from the outside (half moves) are counted as full moves as well
+        //array[i][j][0]  => changing i to j isn't sensible
+        //array[i][j][1] - the difference in the number of segments turned on in i and j
         int[][][] array = new int[16][16][2];
+        //for every starting number i
         for (int i = 0; i < 16; i++) {
+            //for every target number j
             for (int j = 0; j < 16; j++) {
+                //number of segments turned on in i
                 int ilen = 0;
+                //number of segments turned on in j
                 int jlen = 0;
+                //in how many places do i's and j's segments differ
                 int diff = 0;
+                //for every segment
                 for (int k = 0; k < 7; k++) {
                     if (numbers[i][k] != numbers[j][k]) {
                         diff++;
@@ -79,12 +91,18 @@ public class SevenSegmentDisplay {
                         jlen++;
                     }
                 }
+                //the difference in the number of segments turned on in i and j
                 array[i][j][1] = jlen - ilen;
+                //the number of moves needed
                 array[i][j][0] = (diff + Math.abs(array[i][j][1]))/2;
             }
+            //for every target k number
             for (int k=15; k>=0; k--) {
+                //for every target number l larger than k
                 for (int l=k+1; l<16; l++) {
+                    //if l is reachable in less moves than k AND the number of freed segments in k and l is equal AND l is sensible
                     if (array[i][k][1] == array[i][l][1] && array[i][k][0] >= array[i][l][0] && array[i][l][0] != -1) {
+                        //move isn't sensible
                         array[i][k][0] = -1;
                         break;
                     }
