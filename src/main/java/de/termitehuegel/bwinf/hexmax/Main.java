@@ -1,7 +1,8 @@
-package de.philipberner.bwinf.runde2.aufgabe3;
+package de.termitehuegel.bwinf.hexmax;
 
-import de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay.NumberChanger;
-import de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay.SevenSegmentNumber;
+
+import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.NumberChanger;
+import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.SevenSegmentNumber;
 
 import java.io.File;
 import java.util.Arrays;
@@ -49,16 +50,16 @@ public class Main {
             List<int[][]> list = numberChanger.calculateSteps();
             //prints the steps
             if (steps) {
-                for (int i=0; i<list.size(); i++) {
-                    System.out.println(i+1+". "+Arrays.deepToString(list.get(i)));
+                for (int i = 0; i < list.size(); i++) {
+                    System.out.println(i + 1 + ". " + Arrays.deepToString(list.get(i)));
                 }
             }
 
             //calculates and prints the results after every move
             if (intermediateResult) {
                 List<SevenSegmentNumber> list2 = numberChanger.showSteps(list);
-                for (int i=0; i<list2.size(); i++) {
-                    System.out.println(i+1+ ". " + Arrays.deepToString(list2.get(i).getNumber()));
+                for (int i = 0; i < list2.size(); i++) {
+                    System.out.println(i + 1 + ". " + Arrays.deepToString(list2.get(i).getNumber()));
                 }
             }
         }

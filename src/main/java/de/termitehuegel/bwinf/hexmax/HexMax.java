@@ -1,6 +1,6 @@
-package de.philipberner.bwinf.runde2.aufgabe3;
+package de.termitehuegel.bwinf.hexmax;
 
-import de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay.SevenSegmentDisplay;
+import de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay.SevenSegmentDisplay;
 import org.jetbrains.annotations.NotNull;
 
 

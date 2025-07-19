@@ -1,4 +1,4 @@
-package de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay;
+package de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay;
 
 import org.jetbrains.annotations.NotNull;
 

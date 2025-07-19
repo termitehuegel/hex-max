@@ -1,4 +1,4 @@
-package de.philipberner.bwinf.runde2.aufgabe3;
+package de.termitehuegel.bwinf.hexmax;
 
 
 import org.jetbrains.annotations.NotNull;

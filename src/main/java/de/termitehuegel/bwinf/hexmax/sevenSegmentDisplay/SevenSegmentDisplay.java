@@ -1,4 +1,4 @@
-package de.philipberner.bwinf.runde2.aufgabe3.sevenSegmentDisplay;
+package de.termitehuegel.bwinf.hexmax.sevenSegmentDisplay;
 
 public class SevenSegmentDisplay {
     //numbers[i] =>  i => hex number, numbers[i][j] => which segment is on (starts on top and goes clockwise - center is last)
