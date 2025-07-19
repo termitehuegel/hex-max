@@ -42,7 +42,6 @@ public class SevenSegmentDisplay {
                 array[i][j][1] = jlen - ilen;
                 array[i][j][0] = (diff + Math.abs(array[i][j][1]))/2;
             }
-            //System.out.println(Arrays.deepToString(array[i]));
             for (int k=15; k>=0; k--) {
                 for (int l=k+1; l<16; l++) {
                     if (array[i][k][1] == array[i][l][1] && array[i][k][0] >= array[i][l][0] && array[i][l][0] != -1) {
@@ -51,7 +50,6 @@ public class SevenSegmentDisplay {
                     }
                 }
             }
-            //System.out.println(Arrays.deepToString(array[i]));
 
             String s = i + ": ";
             for (int k=15; k>=0; k--) {
@@ -84,7 +82,6 @@ public class SevenSegmentDisplay {
                 array[i][j][1] = jlen - ilen;
                 array[i][j][0] = (diff + Math.abs(array[i][j][1]))/2;
             }
-            //System.out.println(Arrays.deepToString(array[i]));
             for (int k=15; k>=0; k--) {
                 for (int l=k+1; l<16; l++) {
                     if (array[i][k][1] == array[i][l][1] && array[i][k][0] >= array[i][l][0] && array[i][l][0] != -1) {
@@ -94,7 +91,6 @@ public class SevenSegmentDisplay {
                 }
             }
 
-            //System.out.println(Arrays.deepToString(array[i]));
         }
         return array;
     }
